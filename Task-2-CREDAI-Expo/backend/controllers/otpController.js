@@ -17,6 +17,11 @@ exports.sendMobileOtp = async (req, res, next) => {
         // Generate OTP
         const otp = generateOtp();
 
+        // Debug OTP in development
+        if (process.env.NODE_ENV !== 'production') {
+            console.log(`[DEBUG] Generated OTP for ${mobile}: ${otp}`);
+        }
+
         // Hash OTP
         const salt = await bcrypt.genSalt(10);
         const hashedOtp = await bcrypt.hash(otp, salt);

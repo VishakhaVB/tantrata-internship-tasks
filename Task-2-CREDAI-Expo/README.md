@@ -70,3 +70,47 @@ Simply open `index.html` in your browser.
 
 ## 🛡️ License
 This project is for educational/demonstration purposes.
+
+## 🌍 Deployment Guide
+
+This project is configured for deployment on **Render (Backend)** and **Netlify (Frontend)**.
+
+### 1. Backend Deployment (Render)
+1. Push this repository to GitHub.
+2. Log in to [Render](https://dashboard.render.com/) and click **New +** > **Web Service**.
+3. Connect your GitHub repository.
+4. Configure the service:
+   - **Runtime**: Node
+   - **Build Command**: `npm install`
+   - **Start Command**: `npm start`
+5. **Environment Variables**:
+   Go to the "Environment" tab and add:
+   - `NODE_ENV`: `production`
+   - `MONGO_URI`: Your MongoDB Atlas Connection String
+   - `JWT_SECRET`: A secure random string
+   - `FRONTEND_URL`: Your Netlify Frontend URL (e.g., `https://my-expo-app.netlify.app`)
+   - `SMTP_HOST`, `SMTP_USER`, etc. (if using Email features)
+
+### 2. Frontend Deployment (Netlify)
+1. Log in to [Netlify](https://app.netlify.com/).
+2. Click **Add new site** > **Import an existing project**.
+3. Select your GitHub repository.
+4. **Build Settings**:
+   - **Base directory**: `/`
+   - **Publish directory**: `/` (or leave empty)
+   - **Build command**: (leave empty)
+5. Click **Deploy**.
+
+**Post-Deployment Configuration**:
+- Once deployed, copy your **Render Backend URL** (e.g., `https://my-api.onrender.com`).
+- Update `script.js` (Line ~4) in your repository with this URL:
+  ```javascript
+  const API_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') 
+      ? 'http://localhost:5000/api' 
+      : 'https://YOUR-RENDER-APP.onrender.com/api';
+  ```
+- Push the change to GitHub (Netlify will auto-redeploy).
+
+### 🌐 Live Demo
+- **Frontend**: [Link to your Netlify App]
+- **Backend**: [Link to your Render App]
