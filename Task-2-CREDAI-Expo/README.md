@@ -2,7 +2,7 @@
 
 Welcome to the official repository for the **CREDAI Pune Property Expo 2026** website. This project helps users register for the expo, view event details, and explore property highlights.
 
-![Expo Banner](https://credai.org/assets/images/credai-logo.png)
+![link]([https://credai.org/assets/images/credai-logo.png](https://tantrata-credai-expo.netlify.app/))
 
 ## 🚀 Features
 
