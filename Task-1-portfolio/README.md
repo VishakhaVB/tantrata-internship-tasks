@@ -27,8 +27,6 @@ This project represents my personal portfolio to highlight my learning journey, 
 
 
 
-## 🔗 Live Demo
-(Add deployed link here)
 
 ---
 
